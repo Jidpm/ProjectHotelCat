@@ -1,0 +1,14 @@
+POST http://localhost:8900/api/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Mii",
+    "lastName" : "chan",
+    "password": "12345",
+    "identity": "user8@gmail.com",
+    "confirmPassword": "12345",
+    "address": "as",
+    "phoneNumber": "0123456789"
+  
+}
+###
