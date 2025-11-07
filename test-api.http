@@ -1,14 +1,60 @@
+//Register
 POST http://localhost:8900/api/auth/register HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Mii",
+    "identity": "admin1@gmail.com",
+    # "phoneNumber": "0123456789",
+    "email": "admin1@gmail.com",
+    "firstName": "admin",
     "lastName" : "chan",
     "password": "12345",
-    "identity": "user8@gmail.com",
     "confirmPassword": "12345",
     "address": "as",
-    "phoneNumber": "0123456789"
-  
+    
 }
 ###
+
+//Login-user
+POST http://localhost:8900/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "identity": "user1@gmail.com",
+    "password": "12345"
+}
+###
+
+//Login-admin
+POST http://localhost:8900/api/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "identity": "super.admin2@cathotel.com",
+    "password": "12345"  
+}
+###
+
+//profile-user
+Get http://localhost:8900/api/auth/profile-user HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYyNDg1OTE3LCJleHAiOjE3NjM3ODE5MTd9.a2f_iIQa4ffE9K5k3BgVkeun4Swau2SxEFM2RXpqV7g
+###
+
+//add cat
+GET http://localhost:8900/api/info/catinfo HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYyNDg1OTE3LCJleHAiOjE3NjM3ODE5MTd9.a2f_iIQa4ffE9K5k3BgVkeun4Swau2SxEFM2RXpqV7g
+
+{
+    "catName": "Kuma"
+}
+
+###
+
+{
+    "catName": "Kuma",
+    "age": "1 years",
+    "breed": "Ragdoll",
+    "healthInfo": "..."
+}

@@ -1,7 +1,7 @@
 CC21-ProJectCatHotel
 ===
 ### env guide
-PORT=
+PORT= 8900
 DATABASE_URL="mysql://root:1234567m@localhost:3306/projectHotelCat"
 JWT_SECRET=
 
@@ -10,14 +10,17 @@ JWT_SECRET=
 
 |path |method |authen |params |query |body |
 |:-- |:-- |:-- |:-- |:-- |:-- |
+|/api/auth/register|post|-|-|-| {identity, phoneNumber, email, firstName, lastName, password, confirmPassword, }
 |/api/auth/login|post|-|-|-| {identity, password}
-|/api/auth/register|post|-|-|-| {identity, firstName, lastName, password, confirmPassword}
+|/api/auth/profile-user|get|y|-|-|-|
+|/api/auth/settings|get|y||-|-
+|/api/auth/settings|put|y||-|-
 
-|/api/auth/me|get|y|-|-|-|
-|/api/post|get|y|-|-|-|
-|/api/post|post|y|-|-|{message, image(file)}
-|/api/post|put|y|:id|-|{message, image(file)}
-|/api/post|delete|y|:id|-|-
+|/api/info/catInfo||y|-|-|{}
+|/api/info/roomType|get|y|-|-|-|
+|/api/boooking|put|y|:id|-|{message, image(file)}
+
+|/api/appointment|get|y|-|-|-|
 |/api/comment|post|y|-|-|{message, postId}
 |/api/like|post|y|-|-|{postId}
 |/api/like|delete|y|:id|-|-
