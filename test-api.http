@@ -52,9 +52,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 
 ###
 
+# {
+#     "catName": "Kuma",
+#     "age": "1 years",
+#     "breed": "Ragdoll",
+#     "healthInfo": "..."
+# }
+
+//get roomtype
+GET http://localhost:8900/api/info/roomtype HTTP/1.1
+content-type: application/json
+
 {
-    "catName": "Kuma",
-    "age": "1 years",
-    "breed": "Ragdoll",
-    "healthInfo": "..."
+    "id": "1"
 }
+
+###

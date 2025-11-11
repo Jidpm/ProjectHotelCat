@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { addCatInfo, catInfo } from "../Controllers/info.controller.js";
-import { authMiddleware } from "../Middleware/authMiddleware.js";
+import { addCatInfo, catInfo, roomType } from "../Controllers/info.controller.js";
 
 
 const infoRoute = Router()
@@ -8,9 +7,13 @@ const infoRoute = Router()
 //Add Cat detail info
 infoRoute.post('/catinfo', addCatInfo)
 //get cat detail info
-infoRoute.get('/catinfo', authMiddleware , catInfo)
-
-infoRoute.get('/roomType',()=>{})
+infoRoute.get('/catinfo', catInfo)
+//update cat info
 infoRoute.put('/catinfo-update', ()=>{})
+
+//get roomtype
+infoRoute.get('/roomtype/:id', roomType)
+infoRoute.post('/roomtype',()=>{})
+infoRoute.put('/roomtype',()=>{})
 
 export default infoRoute

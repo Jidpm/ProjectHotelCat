@@ -1,10 +1,8 @@
-import { createCatInfo, getCatInfo } from "../Services/info.service.js"
+import { createCatInfo, getCatInfo, getRoomDetail } from "../Services/info.service.js"
 import { addCatInfoSchema } from "../Validations/Schema.js"
 
 
 export const addCatInfo = async(req, res)=>{
-    // const { catName, age, breed, healthInfo } = req.body
-
     //validation
     const catDetailInfo = addCatInfoSchema.parse(req.body)
 
@@ -18,11 +16,14 @@ export const addCatInfo = async(req, res)=>{
 
 export const catInfo = async(req, res)=>{
     const catName = req.body.catName
-    console.log('catName', catName)
     const catDetail = await getCatInfo(catName)
     res.json({catDetail})
 }
 
-// export const RoomType = async(req, res)=>{
-//     const roomId = req.roomType
-// }
+export const roomType = async(req, res)=>{
+    const roomId = req.params.id
+    // console.log('req', roomId)
+    const roomDetail = await getRoomDetail(roomId)
+    console.log('roomDetail', roomDetail)
+    res.json({roomDetail})
+}
